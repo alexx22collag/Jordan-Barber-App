@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1c1c1e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Barber" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Barber Control</title>
+    <script type="module" crossorigin src="./index-CFg_m9LX.js"></script>
+    <link rel="stylesheet" crossorigin href="./index-DxVgavbi.css">
+  <link rel="manifest" href="./manifest.webmanifest"></head>
+  <body>
+    <div id="root"><p id="boot" style="font:16px system-ui;padding:2rem;color:#888">Cargando Barber Control…</p></div>
+    <noscript><p style="font:16px system-ui;padding:2rem">Barber Control necesita JavaScript activado.</p></noscript>
+    <script>
+      // Diagnóstico: si algo falla al cargar, se muestra en pantalla en vez de quedarse en blanco.
+      (function () {
+        function show(msg) {
+          var b = document.getElementById('boot');
+          if (!b) return;
+          b.style.color = '#b3382c';
+          b.textContent = 'No se pudo arrancar: ' + msg;
+        }
+        window.addEventListener('error', function (e) {
+          var t = e.target;
+          if (t && (t.src || t.href)) show('no se pudo cargar ' + (t.src || t.href));
+          else show((e.message || 'error desconocido') + (e.filename ? ' (' + e.filename.split('/').pop() + ':' + e.lineno + ')' : ''));
+        }, true);
+        window.addEventListener('unhandledrejection', function (e) { show(String(e.reason && e.reason.message || e.reason)); });
+        setTimeout(function () { var b = document.getElementById('boot'); if (b && !b.dataset.err) b.textContent += ' (si esto no cambia en unos segundos, hay un fallo de carga)'; }, 6000);
+      })();
+    </script>
+  </body>
+</html>
